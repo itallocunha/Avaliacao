@@ -1,70 +1,45 @@
 package com.partido.Avaliacao.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
+@EqualsAndHashCode
+@Getter
+@Setter
 @Entity
 @Table(name = "TB_PARTIDO")
 public class Partido implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
 
+    @EqualsAndHashCode.Include
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "nomeDoPartido", nullable = false,length = 20)
     private String nomeDoPartido;
 
+    @Column(name = "sigla", nullable = false,length = 20)
     private String sigla;
 
+    @Column(name = "ideologia", nullable = false,length = 20)
     private String ideologia;
 
+    @Column(name = "anoDeFundacao", nullable = false,length = 20)
     private Date anoDeFundacao;
 
-    public Partido(long id, String nomeDoPartido, String sigla, String ideologia, Date anoDeFundacao) {
-        this.id = id;
+    @OneToMany(mappedBy = "partido")
+    private List<Associado> associados;
+
+    public Partido(String nomeDoPartido, String sigla, String ideologia, Date anoDeFundacao) {
         this.nomeDoPartido = nomeDoPartido;
         this.sigla = sigla;
         this.ideologia = ideologia;
-        this.anoDeFundacao = anoDeFundacao;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getNomeDoPartido() {
-        return nomeDoPartido;
-    }
-
-    public void setNomeDoPartido(String nomeDoPartido) {
-        this.nomeDoPartido = nomeDoPartido;
-    }
-
-    public String getSigla() {
-        return sigla;
-    }
-
-    public void setSigla(String sigla) {
-        this.sigla = sigla;
-    }
-
-    public String getIdeologia() {
-        return ideologia;
-    }
-
-    public void setIdeologia(String ideologia) {
-        this.ideologia = ideologia;
-    }
-
-    public Date getAnoDeFundacao() {
-        return anoDeFundacao;
-    }
-
-    public void setAnoDeFundacao(Date anoDeFundacao) {
         this.anoDeFundacao = anoDeFundacao;
     }
 }
