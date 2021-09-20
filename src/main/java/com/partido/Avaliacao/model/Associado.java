@@ -15,6 +15,10 @@ import java.util.Date;
 @Table(name = "TB_ASSOCIADO")
 public class Associado {
 
+    public enum associadosEnum{
+
+        
+    }
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
