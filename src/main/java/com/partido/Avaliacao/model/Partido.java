@@ -1,8 +1,6 @@
 package com.partido.Avaliacao.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,9 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 @EqualsAndHashCode
+@ToString
 @Getter
 @Setter
 @Entity
+@RequiredArgsConstructor
 @Table(name = "TB_PARTIDO")
 public class Partido implements Serializable {
 
@@ -36,10 +36,4 @@ public class Partido implements Serializable {
     @OneToMany(mappedBy = "partido")
     private List<Associado> associados;
 
-    public Partido(String nomeDoPartido, String sigla, String ideologia, Date anoDeFundacao) {
-        this.nomeDoPartido = nomeDoPartido;
-        this.sigla = sigla;
-        this.ideologia = ideologia;
-        this.anoDeFundacao = anoDeFundacao;
-    }
 }

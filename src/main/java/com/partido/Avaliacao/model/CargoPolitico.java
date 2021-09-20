@@ -1,0 +1,5 @@
+package com.partido.Avaliacao.model;
+
+public enum CargoPolitico {
+    VEREADOR,PREFEITO,DEPUTADO_FEDERAL,DEPUTADO_ESTADUAL,SENADOR,GOVERNADOR,PRESIDENTE,NENHUM
+}

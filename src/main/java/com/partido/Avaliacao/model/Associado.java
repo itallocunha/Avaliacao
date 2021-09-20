@@ -1,24 +1,19 @@
 package com.partido.Avaliacao.model;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 
 import javax.persistence.*;
 import java.util.Date;
 
-
 @EqualsAndHashCode
+@ToString
 @Getter
 @Setter
 @Entity
 @Table(name = "TB_ASSOCIADO")
 public class Associado {
 
-    public enum associadosEnum{
-
-        
-    }
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
